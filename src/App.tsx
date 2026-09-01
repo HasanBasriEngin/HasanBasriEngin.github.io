@@ -135,6 +135,7 @@ export default function App() {
                 >
                   <Icon />
                   {s.label}
+                  <ArrowIcon className="ext" />
                 </a>
               );
             })}

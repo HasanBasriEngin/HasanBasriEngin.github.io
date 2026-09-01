@@ -315,21 +315,23 @@ img {
 
 .socials {
   margin-top: 26px;
+  align-self: stretch;
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .social-link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13.5px;
+  gap: 11px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-muted);
   background: var(--bg-elev);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 9px 14px;
+  border-radius: 12px;
+  padding: 12px 15px;
   transition:
     color 0.15s var(--ease-out),
     border-color 0.15s var(--ease-out),
@@ -344,9 +346,21 @@ img {
   transform: translateY(-2px);
 }
 
-.social-link svg {
-  width: 16px;
-  height: 16px;
+.social-link > svg:first-child {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.social-link .ext {
+  margin-left: auto;
+  color: var(--text-dim);
+  transition: transform 0.18s var(--ease-out), color 0.18s var(--ease-out);
+}
+
+.social-link:hover .ext {
+  color: var(--accent);
+  transform: translate(2px, -2px);
 }
 
 /* ---------- projects ---------- */
@@ -519,9 +533,6 @@ img {
   }
   .name {
     font-size: 26px;
-  }
-  .socials {
-    flex-wrap: wrap;
   }
   .footer {
     flex-direction: column-reverse;
