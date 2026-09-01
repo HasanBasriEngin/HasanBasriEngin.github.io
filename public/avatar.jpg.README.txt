@@ -1,0 +1,9 @@
+Put your profile photo here as `avatar.jpg` (this folder: /public).
+
+- Square image works best (e.g. 400x400 or larger).
+- Supported: rename to exactly `avatar.jpg`. If you prefer PNG, save as
+  `avatar.png` and change `avatar: "/avatar.jpg"` to `"/avatar.png"` in
+  src/data.ts.
+- If no file is present, the site shows your initials (HB) instead — nothing breaks.
+
+You can delete this .txt file once your photo is in place.
