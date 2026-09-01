@@ -188,6 +188,7 @@ img {
   height: 84px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 22%;
   border: 1px solid var(--border-strong);
   background: var(--bg-elev);
 }

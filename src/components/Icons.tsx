@@ -47,23 +47,22 @@ export function ArrowIcon({ className }: IconProps) {
   );
 }
 
+// Hack The Box mark, kept in the brand green so it stays legible on the
+// tinted row background (and doesn't blend on hover).
 export function HtbIcon({ className }: IconProps) {
   return (
     <svg
       className={className}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
+      stroke="#9FEF00"
+      strokeWidth="1.7"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      {/* outer hexagon */}
-      <path d="M17 3.34 22 12 17 20.66 7 20.66 2 12 7 3.34Z" />
-      {/* isometric cube */}
-      <path d="M12 5 17.5 8.2 17.5 14.6 12 17.8 6.5 14.6 6.5 8.2Z" />
-      <path d="M6.5 8.2 12 11.4 17.5 8.2M12 11.4 12 17.8" />
+      <path d="M12 2.3 3.4 7v10L12 21.7 20.6 17V7L12 2.3Z" />
+      <path d="M12 12 3.7 7.2M12 12l8.3-4.8M12 12v9.4" />
     </svg>
   );
 }
