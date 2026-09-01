@@ -14,6 +14,7 @@ import { LangSwitch } from "./components/LangSwitch";
 import {
   GitHubIcon,
   LinkedInIcon,
+  HtbIcon,
   ArrowIcon,
   CapIcon,
   BoltIcon,
@@ -37,6 +38,7 @@ function getInitialLang(): Lang {
 const socialIcon = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
+  htb: HtbIcon,
 } as const;
 
 export default function App() {

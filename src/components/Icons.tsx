@@ -47,6 +47,24 @@ export function ArrowIcon({ className }: IconProps) {
   );
 }
 
+export function HtbIcon({ className }: IconProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 2.3 3.4 7v10L12 21.7 20.6 17V7L12 2.3Z" />
+      <path d="M12 12 3.7 7.2M12 12l8.3-4.8M12 12v9.4" />
+    </svg>
+  );
+}
+
 export function CapIcon({ className }: IconProps) {
   return (
     <svg
