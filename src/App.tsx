@@ -140,8 +140,8 @@ export default function App() {
                   key={s.label}
                   className="social-link"
                   href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={isMail ? undefined : "_blank"}
+                  rel={isMail ? undefined : "noopener noreferrer"}
                 >
                   <Icon className={isMail ? "social-mail-icon" : undefined} />
                   <span className="social-label">
