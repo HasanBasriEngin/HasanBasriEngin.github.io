@@ -68,23 +68,33 @@ export function HtbIcon({ className }: IconProps) {
   );
 }
 
-// Ankara Bilim Üniversitesi mark: nested triangles, in the university's
-// dark brand tone (#1f2937).
+// Ankara Bilim Üniversitesi mark: nested navy triangles (#1f2937) with a
+// grey centre (#888888), on a small white chip so it reads on the dark page.
 export function UniIcon({ className }: IconProps) {
   return (
     <svg
       className={className}
-      width="14"
-      height="14"
+      width="15"
+      height="15"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="#1f2937"
-      strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path d="M12 2.5 21.5 19H2.5Z" strokeWidth="2" />
-      <path d="M12 7 17.7 16.8H6.3Z" strokeWidth="1.7" />
-      <path d="M12 11.5 13.9 15H10.1Z" fill="#1f2937" strokeWidth="0" />
+      <rect x="0" y="0" width="24" height="24" rx="6" fill="#ffffff" />
+      <path
+        d="M12 3.2 20.66 18.2H3.34Z"
+        fill="none"
+        stroke="#1f2937"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 7.2 17.2 16.2H6.8Z"
+        fill="none"
+        stroke="#1f2937"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path d="M12 10.2 14.6 14.7H9.4Z" fill="#888888" />
     </svg>
   );
 }
