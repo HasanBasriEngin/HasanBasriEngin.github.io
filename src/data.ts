@@ -61,8 +61,8 @@ export const projects: Project[] = [
   {
     name: "PrintShop",
     desc: {
-      en: "A fully featured e-commerce site for 3D-printed products — payment infrastructure, a database layer and Google authentication.",
-      tr: "3D baskı ürünleri satan, tam işlevli bir e-ticaret sitesi — ödeme altyapısı, veritabanı ve Google Auth bağlantıları.",
+      en: "A fully featured e-commerce site built for selling 3D-printed products, with payment infrastructure, a database layer and Google authentication.",
+      tr: "3D baskı ürünlerinin satışı için geliştirilmiş, tam işlevli bir e-ticaret sitesi; ödeme altyapısı, veritabanı ve Google Auth bağlantılarını içerir.",
     },
     tags: ["React", "TypeScript", "Supabase", "Tailwind CSS"],
     href: "https://github.com/HasanBasriEngin/printshop-ecommerce-web-site",
