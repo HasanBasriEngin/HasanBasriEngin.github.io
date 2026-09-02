@@ -184,6 +184,16 @@ img {
   .hero {
     position: sticky;
     top: 104px;
+    /* never taller than the viewport, so the whole rail (incl. the last
+       social link) stays in view; scrolls internally on short screens */
+    max-height: calc(100vh - 128px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+
+  .hero::-webkit-scrollbar {
+    display: none;
   }
 
   .content > .section:first-child {
@@ -411,7 +421,7 @@ img {
 }
 
 .social-link:hover .ext {
-  color: var(--accent);
+  color: #367a04;
   transform: translate(2px, -2px);
 }
 
@@ -461,7 +471,7 @@ img {
 }
 
 .project:hover .project-arrow {
-  color: var(--accent);
+  color: #367a04;
   transform: translate(2px, -2px);
 }
 
