@@ -369,6 +369,50 @@ img {
   max-width: 52ch;
 }
 
+/* ---------- typewriter ---------- */
+
+.tw {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+}
+
+.tw-ghost {
+  opacity: 0;
+}
+
+.tw-real {
+  position: absolute;
+  inset: 0;
+  white-space: pre-wrap;
+}
+
+.tw-caret {
+  color: var(--accent);
+  font-weight: 400;
+  animation: tw-blink 1.05s steps(1, end) infinite;
+}
+
+@keyframes tw-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.tw-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
 /* ---------- socials ---------- */
 
 .socials {

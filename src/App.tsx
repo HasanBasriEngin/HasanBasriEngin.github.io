@@ -5,6 +5,7 @@ import { ui } from "./i18n";
 import { Reveal } from "./components/Reveal";
 import { LangSwitch } from "./components/LangSwitch";
 import { TopoField } from "./components/TopoField";
+import { Typewriter } from "./components/Typewriter";
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -16,6 +17,7 @@ import {
 } from "./components/Icons";
 
 const STORAGE_KEY = "hbe.lang";
+const TW_KEY = "hbe.tw";
 
 function getInitialLang(): Lang {
   try {
@@ -41,6 +43,27 @@ export default function App() {
   const [lang, setLangState] = useState<Lang>(getInitialLang);
   const [avatarOk, setAvatarOk] = useState(true);
   const reduce = useReducedMotion();
+
+  // Run the teletype intro only the first time this tab loads the page
+  // (and never when the visitor prefers reduced motion). Read the media
+  // query directly — useReducedMotion() can report `true` on first render.
+  const [twInstant, setTwInstant] = useState(() => {
+    try {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+        return true;
+      return sessionStorage.getItem(TW_KEY) === "1";
+    } catch {
+      return false;
+    }
+  });
+  const finishIntro = () => {
+    setTwInstant(true);
+    try {
+      sessionStorage.setItem(TW_KEY, "1");
+    } catch {
+      /* ignore */
+    }
+  };
 
   const t = ui[lang];
 
@@ -103,15 +126,35 @@ export default function App() {
           <div className="meta">
             <span>
               <UniIcon />
-              {profile.university[lang]}
+              <span className="tw-tag">[LOC]</span>
+              <Typewriter
+                text={profile.university[lang]}
+                delay={450}
+                speed={24}
+                instant={twInstant}
+              />
             </span>
             <span>
               <BoltIcon />
-              {profile.focus[lang]}
+              <span className="tw-tag">[ROLE]</span>
+              <Typewriter
+                text={profile.focus[lang]}
+                delay={1350}
+                speed={24}
+                instant={twInstant}
+              />
             </span>
           </div>
 
-          <p className="bio">{profile.bio[lang]}</p>
+          <p className="bio">
+            <Typewriter
+              text={profile.bio[lang]}
+              delay={1350}
+              speed={5}
+              instant={twInstant}
+              onDone={finishIntro}
+            />
+          </p>
 
           <nav className="socials" aria-label="Social links">
             {socials.map((s) => {
