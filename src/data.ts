@@ -29,12 +29,12 @@ export const profile = {
     tr: "Ankara Bilim Üniversitesi · 4. sınıf",
   } satisfies Bilingual,
   focus: {
-    en: "Blue Team",
-    tr: "Blue Team",
+    en: "SOC · Blue Team",
+    tr: "SOC · Blue Team",
   } satisfies Bilingual,
   bio: {
-    en: "I focus on network security, blue team operations, secure systems and security automation — digging into how protocols actually work and building tooling around them. Alongside that I ship full-stack web apps with React, TypeScript and modern backends.",
-    tr: "Ağ güvenliği, blue team operasyonları, güvenli sistemler ve güvenlik otomasyonu üzerine çalışıyorum — protokollerin gerçekte nasıl çalıştığını inceleyip bunların etrafında araçlar geliştiriyorum. Bununla birlikte React, TypeScript ve modern backend'lerle full-stack web uygulamaları geliştiriyorum.",
+    en: "On the security side I've moved toward SOC work — log monitoring, alert analysis, threat detection and incident response — learning how attacks show up in real data and how to spot them early. As a software engineering student I also build projects end to end, from backend services and APIs to the frontend on top.",
+    tr: "Güvenlik tarafında SOC işlerine yöneldim — log izleme, alarm analizi, tehdit tespiti ve olay müdahalesi. Saldırıların gerçek veride nasıl göründüğünü ve erkenden nasıl fark edileceğini öğreniyorum. Yazılım mühendisliği öğrencisi olarak projeleri baştan sona geliştiriyorum: backend servisleri ve API'lerden üstteki frontend arayüze kadar.",
   } satisfies Bilingual,
 };
 
