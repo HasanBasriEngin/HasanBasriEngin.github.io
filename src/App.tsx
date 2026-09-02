@@ -4,6 +4,7 @@ import { profile, socials, projects, skillGroups, type Lang } from "./data";
 import { ui } from "./i18n";
 import { Reveal } from "./components/Reveal";
 import { LangSwitch } from "./components/LangSwitch";
+import { TopoField } from "./components/TopoField";
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -66,6 +67,7 @@ export default function App() {
 
   return (
     <>
+      <TopoField />
       <LangSwitch lang={lang} setLang={setLang} />
 
       <main className="page">
