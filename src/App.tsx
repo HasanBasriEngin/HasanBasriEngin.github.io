@@ -110,11 +110,6 @@ export default function App() {
 
           <p className="bio">{profile.bio[lang]}</p>
 
-          <span className="available">
-            <span className="blink" aria-hidden="true" />
-            {profile.available[lang]}
-          </span>
-
           <nav className="socials" aria-label="Social links">
             {socials.map((s) => {
               const Icon = socialIcon[s.icon];

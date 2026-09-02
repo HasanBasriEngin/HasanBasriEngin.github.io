@@ -36,10 +36,6 @@ export const profile = {
     en: "I focus on network security, blue team operations, secure systems and security automation — digging into how protocols actually work and building tooling around them. Alongside that I ship full-stack web apps with React, TypeScript and modern backends.",
     tr: "Ağ güvenliği, blue team operasyonları, güvenli sistemler ve güvenlik otomasyonu üzerine çalışıyorum — protokollerin gerçekte nasıl çalıştığını inceleyip bunların etrafında araçlar geliştiriyorum. Bununla birlikte React, TypeScript ve modern backend'lerle full-stack web uygulamaları geliştiriyorum.",
   } satisfies Bilingual,
-  available: {
-    en: "Open to collaborations",
-    tr: "İş birliğine açık",
-  } satisfies Bilingual,
 };
 
 export const socials = [

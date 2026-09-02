@@ -317,39 +317,6 @@ img {
   max-width: 52ch;
 }
 
-.available {
-  margin-top: 20px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.03em;
-  color: var(--accent);
-  background: var(--accent-dim);
-  border: 1px solid rgba(110, 231, 183, 0.25);
-  border-radius: 999px;
-  padding: 5px 12px;
-}
-
-.available .blink {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  animation: blink 1.8s var(--ease-in-out) infinite;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.25;
-  }
-}
-
 /* ---------- socials ---------- */
 
 .socials {
