@@ -16,7 +16,6 @@ import {
 } from "./components/Icons";
 
 const STORAGE_KEY = "hbe.lang";
-const TW_KEY = "hbe.tw";
 
 function getInitialLang(): Lang {
   try {
@@ -43,26 +42,18 @@ export default function App() {
   const [avatarOk, setAvatarOk] = useState(true);
   const reduce = useReducedMotion();
 
-  // Run the teletype intro only the first time this tab loads the page
-  // (and never when the visitor prefers reduced motion). Read the media
-  // query directly — useReducedMotion() can report `true` on first render.
+  // The teletype intro replays on every page load. It's only skipped when
+  // the visitor prefers reduced motion. (Read the media query directly —
+  // useReducedMotion() can report `true` on first render.) Once it has
+  // finished, a later language toggle swaps the text instantly.
   const [twInstant, setTwInstant] = useState(() => {
     try {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-        return true;
-      return sessionStorage.getItem(TW_KEY) === "1";
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     } catch {
       return false;
     }
   });
-  const finishIntro = () => {
-    setTwInstant(true);
-    try {
-      sessionStorage.setItem(TW_KEY, "1");
-    } catch {
-      /* ignore */
-    }
-  };
+  const finishIntro = () => setTwInstant(true);
 
   const t = ui[lang];
 
