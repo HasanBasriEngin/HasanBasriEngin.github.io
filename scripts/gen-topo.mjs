@@ -27,18 +27,20 @@ const ri = (lo, hi) => Math.floor(rr(lo, hi + 1));
 const W = 640;
 const H = 640;
 const GRID = 128; // field sampling resolution
-const LEVELS = 9;
+const LEVELS = 7;
 const COLOR = "#6CFF00";
 const STROKE = 1.8;
 
 // ---- tileable height field: sum of sines, integer wavenumbers ----
+// Kept smooth (few, low-frequency components) so contours are sparse and
+// fairly evenly spaced rather than bunching up on steep patches.
 const waves = [];
-for (let n = 0; n < 4; n++)
-  waves.push({ kx: ri(1, 3), ky: ri(1, 3), ph: rr(0, 6.283), amp: rr(0.8, 1.4) });
-for (let n = 0; n < 5; n++)
-  waves.push({ kx: ri(2, 6), ky: ri(2, 6), ph: rr(0, 6.283), amp: rr(0.25, 0.55) });
-for (let n = 0; n < 6; n++)
-  waves.push({ kx: ri(4, 11), ky: ri(4, 11), ph: rr(0, 6.283), amp: rr(0.06, 0.18) });
+for (let n = 0; n < 3; n++)
+  waves.push({ kx: ri(1, 2), ky: ri(1, 2), ph: rr(0, 6.283), amp: rr(0.9, 1.3) });
+for (let n = 0; n < 3; n++)
+  waves.push({ kx: ri(2, 4), ky: ri(2, 4), ph: rr(0, 6.283), amp: rr(0.18, 0.34) });
+for (let n = 0; n < 3; n++)
+  waves.push({ kx: ri(3, 7), ky: ri(3, 7), ph: rr(0, 6.283), amp: rr(0.04, 0.09) });
 
 const field = (fx, fy) => {
   let h = 0;

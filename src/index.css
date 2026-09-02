@@ -80,40 +80,46 @@ body::after {
   mask-image: radial-gradient(700px circle at 50% 0%, #000, transparent 75%);
 }
 
-/* Topographic contour field — hidden until the pointer moves, then only a
-   soft circle around the cursor shows through (spotlight / hover reveal).
-   --topo-x / --topo-y are set from JS in TopoField. */
+/* Topographic contour field. Fully masked by default; a soft circle around
+   the pointer plus a few slowly "breathing" patches let the pattern show
+   through. All the coordinates / strengths below are driven from JS
+   (TopoField) via requestAnimationFrame. */
 .topo {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.45s var(--ease-out);
+  opacity: 0.32;
   background-image: url("/topo.svg");
   background-repeat: repeat;
-  background-size: 600px 600px;
-  --topo-x: -300px;
-  --topo-y: -300px;
-  -webkit-mask-image: radial-gradient(
-    circle 200px at var(--topo-x) var(--topo-y),
-    #000 0%,
-    #000 20%,
-    transparent 70%
-  );
-  mask-image: radial-gradient(
-    circle 200px at var(--topo-x) var(--topo-y),
-    #000 0%,
-    #000 20%,
-    transparent 70%
-  );
+  background-size: 640px 640px;
+
+  --mx: -500px;
+  --my: -500px;
+  --b0x: -500px;
+  --b0y: -500px;
+  --b0o: 0;
+  --b1x: -500px;
+  --b1y: -500px;
+  --b1o: 0;
+  --b2x: -500px;
+  --b2y: -500px;
+  --b2o: 0;
+
+  -webkit-mask-image:
+    radial-gradient(circle 190px at var(--mx) var(--my), #000 0%, #000 16%, transparent 70%),
+    radial-gradient(circle 165px at var(--b0x) var(--b0y), rgba(0, 0, 0, var(--b0o)) 0%, transparent 74%),
+    radial-gradient(circle 185px at var(--b1x) var(--b1y), rgba(0, 0, 0, var(--b1o)) 0%, transparent 74%),
+    radial-gradient(circle 150px at var(--b2x) var(--b2y), rgba(0, 0, 0, var(--b2o)) 0%, transparent 74%);
+  mask-image:
+    radial-gradient(circle 190px at var(--mx) var(--my), #000 0%, #000 16%, transparent 70%),
+    radial-gradient(circle 165px at var(--b0x) var(--b0y), rgba(0, 0, 0, var(--b0o)) 0%, transparent 74%),
+    radial-gradient(circle 185px at var(--b1x) var(--b1y), rgba(0, 0, 0, var(--b1o)) 0%, transparent 74%),
+    radial-gradient(circle 150px at var(--b2x) var(--b2y), rgba(0, 0, 0, var(--b2o)) 0%, transparent 74%);
 }
 
-.topo.is-active {
-  opacity: 0.34;
-}
-
-@media (hover: none), (pointer: coarse) {
+/* if masking isn't supported, don't paint a solid green wash over everything */
+@supports not (mask-image: radial-gradient(#000, #000)) {
   .topo {
     display: none;
   }
