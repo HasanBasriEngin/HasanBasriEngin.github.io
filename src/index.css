@@ -177,23 +177,14 @@ img {
     grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
     gap: 76px;
     align-items: start;
-    padding-top: 104px;
-    padding-bottom: 96px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
+  /* the intro rail is pinned in place while the content column scrolls */
   .hero {
     position: sticky;
-    top: 104px;
-    /* never taller than the viewport, so the whole rail (incl. the last
-       social link) stays in view; scrolls internally on short screens */
-    max-height: calc(100vh - 128px);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: none;
-  }
-
-  .hero::-webkit-scrollbar {
-    display: none;
+    top: 60px;
   }
 
   .content > .section:first-child {
@@ -292,7 +283,7 @@ img {
   position: relative;
   width: 84px;
   height: 84px;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .avatar {
@@ -338,7 +329,7 @@ img {
 }
 
 .meta {
-  margin-top: 14px;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 16px;
@@ -353,7 +344,7 @@ img {
 }
 
 .bio {
-  margin-top: 22px;
+  margin-top: 14px;
   font-size: 15.5px;
   color: #c9c9d1;
   max-width: 52ch;
@@ -362,7 +353,7 @@ img {
 /* ---------- socials ---------- */
 
 .socials {
-  margin-top: 26px;
+  margin-top: 20px;
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -379,7 +370,7 @@ img {
   background: var(--bg-elev);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 12px 15px;
+  padding: 10px 15px;
   transition:
     color 0.15s var(--ease-out),
     border-color 0.15s var(--ease-out),
