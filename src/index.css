@@ -389,8 +389,12 @@ img {
 }
 
 .tw-caret {
-  color: var(--accent);
-  font-weight: 400;
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: -0.18em;
+  background: #16c60c; /* cmd "color A" green */
   animation: tw-blink 1.05s steps(1, end) infinite;
 }
 

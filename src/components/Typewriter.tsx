@@ -68,7 +68,7 @@ export function Typewriter({
       <span className="tw-ghost">{text}</span>
       <span className="tw-real" aria-hidden="true">
         {text.slice(0, n)}
-        <span className="tw-caret">▮</span>
+        <span className="tw-caret" />
       </span>
     </span>
   );
