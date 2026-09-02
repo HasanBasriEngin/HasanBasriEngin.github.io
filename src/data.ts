@@ -33,8 +33,8 @@ export const profile = {
     tr: "SOC · Blue Team",
   } satisfies Bilingual,
   bio: {
-    en: "A software engineering student working in cybersecurity, mainly on the SOC side. I also build full-stack applications end to end, from backend services and APIs to the frontend layer.",
-    tr: "Siber güvenlik alanında çalışan bir yazılım mühendisliği öğrencisiyim; ağırlıklı olarak SOC tarafında yer alıyorum. Ayrıca backend servisleri ve API'lerden frontend katmanına kadar uçtan uca full-stack uygulamalar geliştiriyorum.",
+    en: "A software engineering student working in cybersecurity, mainly on the SOC side. I also build full-stack applications end to end, from backend services and APIs to the frontend layer. I am currently preparing for the HTB Certified Defensive Security Analyst (CDSA) and CCNA certifications.",
+    tr: "Siber güvenlik alanında çalışan bir yazılım mühendisliği öğrencisiyim; ağırlıklı olarak SOC tarafında yer alıyorum. Ayrıca backend servisleri ve API'lerden frontend katmanına kadar uçtan uca full-stack uygulamalar geliştiriyorum. Şu anda HTB Certified Defensive Security Analyst (CDSA) ve CCNA sertifikalarına hazırlanıyorum.",
   } satisfies Bilingual,
 };
 
