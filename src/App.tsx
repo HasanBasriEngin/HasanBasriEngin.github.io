@@ -125,7 +125,7 @@ export default function App() {
             <Typewriter
               text={profile.bio[lang]}
               delay={600}
-              speed={8}
+              speed={8.8}
               instant={twInstant}
               onDone={finishIntro}
             />
