@@ -93,7 +93,6 @@ export default function App() {
                 {initials}
               </div>
             )}
-            <span className="status-dot" aria-hidden="true" />
           </div>
 
           <h1 className="name">{profile.name}</h1>
