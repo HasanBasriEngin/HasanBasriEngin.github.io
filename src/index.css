@@ -405,14 +405,6 @@ img {
   }
 }
 
-.tw-tag {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--text-dim);
-}
-
 /* ---------- socials ---------- */
 
 .socials {

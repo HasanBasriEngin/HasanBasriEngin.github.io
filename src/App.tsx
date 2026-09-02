@@ -125,29 +125,15 @@ export default function App() {
           <div className="meta">
             <span>
               <UniIcon />
-              <span className="tw-tag">[LOC]</span>
-              <Typewriter
-                text={profile.university[lang]}
-                delay={450}
-                speed={40}
-                instant={twInstant}
-              />
+              {profile.university[lang]}
             </span>
-            <span>
-              <span className="tw-tag">[ROLE]</span>
-              <Typewriter
-                text={profile.focus[lang]}
-                delay={1600}
-                speed={40}
-                instant={twInstant}
-              />
-            </span>
+            <span>{profile.focus[lang]}</span>
           </div>
 
           <p className="bio">
             <Typewriter
               text={profile.bio[lang]}
-              delay={1750}
+              delay={600}
               speed={8}
               instant={twInstant}
               onDone={finishIntro}
