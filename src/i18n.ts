@@ -15,7 +15,7 @@ export const ui = {
   tr: {
     sectionAbout: "Hakkımda",
     sectionProjects: "Projeler",
-    sectionSkills: "Yetenekler & Araçlar",
+    sectionSkills: "Yetenekler ve Araçlar",
     projectsCurrent: "Güncel çalışmalar",
     moreOnGithub: "GitHub'daki tüm repolar",
     viewRepo: "Repoyu aç",

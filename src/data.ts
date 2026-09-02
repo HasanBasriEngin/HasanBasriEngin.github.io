@@ -22,7 +22,7 @@ export const profile = {
   avatar: "https://github.com/HasanBasriEngin.png?size=240",
   role: {
     en: "Software Engineering student — Cybersecurity & Software Development",
-    tr: "Yazılım Mühendisliği öğrencisi — Siber Güvenlik & Yazılım Geliştirme",
+    tr: "Yazılım Mühendisliği öğrencisi — Siber Güvenlik ve Yazılım Geliştirme",
   } satisfies Bilingual,
   university: {
     en: "Ankara Science University · 4th year",
@@ -34,7 +34,7 @@ export const profile = {
   } satisfies Bilingual,
   bio: {
     en: "A software engineering student working in cybersecurity, mainly on the SOC side. I also build full-stack applications end to end, from backend services and APIs to the frontend layer. I am currently preparing for the HTB Certified Defensive Security Analyst (CDSA) and CCNA certifications.",
-    tr: "Siber güvenlik alanında çalışan bir yazılım mühendisliği öğrencisiyim; ağırlıklı olarak SOC tarafında yer alıyorum. Ayrıca backend servisleri ve API'lerden frontend katmanına kadar uçtan uca full-stack uygulamalar geliştiriyorum. Şu anda HTB Certified Defensive Security Analyst (CDSA) ve CCNA sertifikalarına hazırlanıyorum.",
+    tr: "Siber güvenlikle ilgilenen bir yazılım mühendisliği öğrencisiyim; özellikle SOC tarafına odaklanıyorum. Aynı zamanda hem sunucu (API) hem de arayüz tarafında uçtan uca web uygulamaları geliştiriyorum. Şu anda HTB Certified Defensive Security Analyst (CDSA) ve CCNA sertifikaları için çalışıyorum.",
   } satisfies Bilingual,
 };
 
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     name: "PrintShop",
     desc: {
       en: "A modern e-commerce platform for 3D-printed products, with dynamic product management, auth and an admin panel.",
-      tr: "3D baskı ürünleri için modern bir e-ticaret platformu; dinamik ürün yönetimi, kimlik doğrulama ve yönetici paneli.",
+      tr: "3D baskı ürünleri satan modern bir e-ticaret platformu; dinamik ürün yönetimi, kimlik doğrulama ve yönetici paneli içeriyor.",
     },
     tags: ["React", "TypeScript", "Supabase", "Tailwind CSS"],
     href: "https://github.com/HasanBasriEngin/printshop-ecommerce-web-site",
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     name: "OmniSpeech",
     desc: {
       en: "A hybrid DSP + deep-learning framework for multi-dimensional speech transformation: emotion conversion, voice cloning and gender/age morphing.",
-      tr: "Çok boyutlu ses dönüşümü için hibrit DSP + derin öğrenme çatısı: duygu dönüşümü, ses klonlama ve cinsiyet/yaş morphing.",
+      tr: "DSP ve derin öğrenmeyi birlikte kullanan bir ses dönüştürme altyapısı: duygu aktarımı, ses klonlama, cinsiyet ve yaş değiştirme.",
     },
     tags: ["Python", "PyTorch", "DSP", "Deep Learning"],
     href: "https://github.com/HasanBasriEngin/OmniSpeech-A-Hybrid-DSP-Voice-Transformation",
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     name: "Automated Assessment Website",
     desc: {
       en: "An AI-based feedback system for English language learning that evaluates learner submissions and returns automated, targeted feedback.",
-      tr: "İngilizce öğrenimine yönelik, öğrenci çalışmalarını değerlendirip otomatik ve hedefli geri bildirim veren yapay zeka tabanlı bir sistem.",
+      tr: "İngilizce öğrenimi için yapay zeka tabanlı bir geri bildirim sistemi; öğrencilerin çalışmalarını değerlendirip otomatik ve ayrıntılı geri bildirim veriyor.",
     },
     tags: ["TypeScript", "React", "Node.js", "Gemini 2.5 Flash", "Groq API"],
     href: "https://github.com/HasanBasriEngin/Automated-Assessment-Website",
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     name: "Travel Planner",
     desc: {
       en: "A Java Swing travel planner built around classic design patterns — Singleton, Strategy, Iterator, Observer and Decorator.",
-      tr: "Klasik tasarım kalıpları üzerine kurulu Java Swing seyahat planlayıcı — Singleton, Strategy, Iterator, Observer ve Decorator.",
+      tr: "Klasik tasarım kalıplarıyla geliştirilmiş bir Java Swing seyahat planlayıcısı — Singleton, Strategy, Iterator, Observer ve Decorator.",
     },
     tags: ["Java", "Swing", "Design Patterns"],
     href: "https://github.com/HasanBasriEngin/travel-planner",
