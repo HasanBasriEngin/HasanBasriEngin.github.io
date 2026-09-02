@@ -55,6 +55,11 @@ export const socials = [
     icon: "linkedin" as const,
   },
   {
+    label: "Credly",
+    href: "https://www.credly.com/users/hasan-basri-engin",
+    icon: "credly" as const,
+  },
+  {
     label: "hasanbasriengin61@gmail.com",
     // Opens the visitor's own default mail app with the address pre-filled
     // in the To field.

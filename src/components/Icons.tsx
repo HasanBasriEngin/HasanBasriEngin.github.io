@@ -45,6 +45,26 @@ export function MailIcon({ className }: IconProps) {
   );
 }
 
+// Credly — an award rosette (medal + ribbon), in badge gold.
+export function CredlyIcon({ className }: IconProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#f2b134"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="8.5" r="5.5" />
+      <path d="M8.4 13.3 6.6 21.5 12 18.4l5.4 3.1-1.8-8.2" />
+      <path d="M9.6 8.6 11.3 10.3 14.7 6.7" />
+    </svg>
+  );
+}
+
 export function ArrowIcon({ className }: IconProps) {
   return (
     <svg
