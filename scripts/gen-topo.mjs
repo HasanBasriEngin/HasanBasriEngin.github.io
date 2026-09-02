@@ -1,17 +1,16 @@
-// Regenerates public/topo.svg — an organic contour-line (izohips) field.
+// Regenerates public/topo.svg — a real contour-line (izohips) field.
 //
-// It's the contour set of ONE irregular radial height field, so the lines are
-// lumpy and non-parallel but, like real contour lines, never cross: after the
-// wobble is applied, each level's radius is clamped to stay at least MIN_GAP
-// outside the level below it. Run:  npm run gen:topo
+// A tileable 2-D height field is built as a sum of sine waves with integer
+// wavenumbers (so it wraps seamlessly), then iso-contours are traced with
+// marching squares and stitched into polylines. Contours of one continuous
+// field meander, branch, form saddles and closed loops — and never cross.
+// Run:  npm run gen:topo
 import { writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const here = dirname(fileURLToPath(import.meta.url));
-const OUT = resolve(here, "../public/topo.svg");
+const OUT = resolve(dirname(fileURLToPath(import.meta.url)), "../public/topo.svg");
 
-// deterministic PRNG so the pattern is stable across regenerations
 function mulberry32(a) {
   return function () {
     a |= 0;
@@ -21,76 +20,186 @@ function mulberry32(a) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
-const rnd = mulberry32(20260921);
+const rnd = mulberry32(20261002);
 const rr = (lo, hi) => lo + (hi - lo) * rnd();
+const ri = (lo, hi) => Math.floor(rr(lo, hi + 1));
 
-const W = 440;
-const H = 440;
+const W = 640;
+const H = 640;
+const GRID = 128; // field sampling resolution
+const LEVELS = 9;
 const COLOR = "#6CFF00";
-const STROKE = 1.9;
-const SAMPLES = 160;
-const LEVELS = 8;
-const MIN_GAP = 10; // safety floor on spacing -> contours never cross
+const STROKE = 1.8;
 
-const cx = 200;
-const cy = 262;
+// ---- tileable height field: sum of sines, integer wavenumbers ----
+const waves = [];
+for (let n = 0; n < 4; n++)
+  waves.push({ kx: ri(1, 3), ky: ri(1, 3), ph: rr(0, 6.283), amp: rr(0.8, 1.4) });
+for (let n = 0; n < 5; n++)
+  waves.push({ kx: ri(2, 6), ky: ri(2, 6), ph: rr(0, 6.283), amp: rr(0.25, 0.55) });
+for (let n = 0; n < 6; n++)
+  waves.push({ kx: ri(4, 11), ky: ri(4, 11), ph: rr(0, 6.283), amp: rr(0.06, 0.18) });
 
-// broad, low-frequency harmonics -> organic lumps rather than ovals
-const harm = [
-  [2, rr(13, 19)],
-  [3, rr(8, 13)],
-  [4, rr(4, 7)],
-  [5, rr(1.5, 3.5)],
-].map(([k, amp]) => ({ k, amp, ph: rr(0, Math.PI * 2) }));
+const field = (fx, fy) => {
+  let h = 0;
+  for (const w of waves)
+    h += w.amp * Math.sin(2 * Math.PI * (w.kx * fx + w.ky * fy) + w.ph);
+  return h;
+};
 
-// base radius per level, spacing wide enough that the (near-constant) wobble
-// never makes two levels touch on its own
-const baseR = [];
-let acc = 12;
-for (let L = 0; L < LEVELS; L++) {
-  acc += 30 + 20 * (0.5 + 0.5 * Math.sin(L * 0.8 + 1.3));
-  baseR.push(acc);
-}
-
-// r[level][sample]: the SAME lumpy shape at each level (only a hair of drift),
-// so the contours run roughly parallel like real izohips and don't intersect
-const r = [];
-for (let L = 0; L < LEVELS; L++) {
+// ---- sample grid (wraps: index GRID == index 0 in value) ----
+const g = [];
+let mn = Infinity;
+let mx = -Infinity;
+for (let j = 0; j <= GRID; j++) {
   const row = [];
-  for (let i = 0; i <= SAMPLES; i++) {
-    const t = (i / SAMPLES) * Math.PI * 2;
-    let rad = baseR[L];
-    for (const { k, amp, ph } of harm) {
-      rad += amp * (0.85 + L * 0.03) * Math.sin(k * t + ph + L * 0.05);
+  for (let i = 0; i <= GRID; i++) {
+    const v = field(i / GRID, j / GRID);
+    row.push(v);
+    if (i < GRID && j < GRID) {
+      if (v < mn) mn = v;
+      if (v > mx) mx = v;
     }
-    row.push(rad);
   }
-  r.push(row);
+  g.push(row);
 }
 
-// clamp each level to sit strictly outside the one below -> contours never cross
-for (let L = 1; L < LEVELS; L++) {
-  for (let i = 0; i <= SAMPLES; i++) {
-    if (r[L][i] < r[L - 1][i] + MIN_GAP) r[L][i] = r[L - 1][i] + MIN_GAP;
+const levels = [];
+for (let l = 0; l < LEVELS; l++) levels.push(mn + (mx - mn) * ((l + 0.5) / LEVELS));
+
+// ---- marching squares ----
+const cw = W / GRID;
+const ch = H / GRID;
+const lerp = (a, b, va, vb, lvl) => a + (b - a) * ((lvl - va) / (vb - va));
+
+function segmentsFor(lvl) {
+  const segs = [];
+  for (let j = 0; j < GRID; j++) {
+    for (let i = 0; i < GRID; i++) {
+      const v0 = g[j][i];
+      const v1 = g[j][i + 1];
+      const v2 = g[j + 1][i + 1];
+      const v3 = g[j + 1][i];
+      let idx = 0;
+      if (v0 > lvl) idx |= 1;
+      if (v1 > lvl) idx |= 2;
+      if (v2 > lvl) idx |= 4;
+      if (v3 > lvl) idx |= 8;
+      if (idx === 0 || idx === 15) continue;
+      const x0 = i * cw;
+      const x1 = (i + 1) * cw;
+      const y0 = j * ch;
+      const y1 = (j + 1) * ch;
+      const top = () => [lerp(x0, x1, v0, v1, lvl), y0];
+      const right = () => [x1, lerp(y0, y1, v1, v2, lvl)];
+      const bottom = () => [lerp(x0, x1, v3, v2, lvl), y1];
+      const left = () => [x0, lerp(y0, y1, v0, v3, lvl)];
+      const P = (a, b) => segs.push([a, b]);
+      switch (idx) {
+        case 1:
+        case 14:
+          P(left(), top());
+          break;
+        case 2:
+        case 13:
+          P(top(), right());
+          break;
+        case 3:
+        case 12:
+          P(left(), right());
+          break;
+        case 4:
+        case 11:
+          P(right(), bottom());
+          break;
+        case 6:
+        case 9:
+          P(top(), bottom());
+          break;
+        case 7:
+        case 8:
+          P(left(), bottom());
+          break;
+        case 5: {
+          if ((v0 + v1 + v2 + v3) / 4 > lvl) {
+            P(left(), top());
+            P(right(), bottom());
+          } else {
+            P(top(), right());
+            P(left(), bottom());
+          }
+          break;
+        }
+        case 10: {
+          if ((v0 + v1 + v2 + v3) / 4 > lvl) {
+            P(top(), right());
+            P(left(), bottom());
+          } else {
+            P(left(), top());
+            P(right(), bottom());
+          }
+          break;
+        }
+      }
+    }
   }
+  return segs;
 }
 
-const paths = r.map((row) => {
-  let d = "";
-  for (let i = 0; i <= SAMPLES; i++) {
-    const t = (i / SAMPLES) * Math.PI * 2;
-    const x = cx + row[i] * Math.cos(t);
-    const y = cy + row[i] * Math.sin(t);
-    d += (i === 0 ? "M" : "L") + x.toFixed(1) + " " + y.toFixed(1) + " ";
+// ---- stitch segments into polylines ----
+const key = (p) => Math.round(p[0] * 10) + "," + Math.round(p[1] * 10);
+
+function chain(segs) {
+  const map = new Map();
+  segs.forEach((s, i) => {
+    for (const p of s) {
+      const k = key(p);
+      if (!map.has(k)) map.set(k, []);
+      map.get(k).push(i);
+    }
+  });
+  const used = new Array(segs.length).fill(false);
+  const polys = [];
+  const nextFrom = (k) => (map.get(k) || []).find((si) => !used[si]);
+
+  for (let i = 0; i < segs.length; i++) {
+    if (used[i]) continue;
+    used[i] = true;
+    const pts = [segs[i][0].slice(), segs[i][1].slice()];
+    for (let guard = 0; guard < 200000; guard++) {
+      const c = nextFrom(key(pts[pts.length - 1]));
+      if (c == null) break;
+      used[c] = true;
+      const s = segs[c];
+      pts.push((key(s[0]) === key(pts[pts.length - 1]) ? s[1] : s[0]).slice());
+    }
+    for (let guard = 0; guard < 200000; guard++) {
+      const c = nextFrom(key(pts[0]));
+      if (c == null) break;
+      used[c] = true;
+      const s = segs[c];
+      pts.unshift((key(s[0]) === key(pts[0]) ? s[1] : s[0]).slice());
+    }
+    if (pts.length >= 4) polys.push(pts);
   }
-  return `<path d="${d}Z"/>`;
-});
+  return polys;
+}
+
+const out = [];
+for (const lvl of levels) {
+  for (const p of chain(segmentsFor(lvl))) {
+    let d = "M" + p[0][0].toFixed(1) + " " + p[0][1].toFixed(1);
+    for (let i = 1; i < p.length; i++)
+      d += "L" + p[i][0].toFixed(1) + " " + p[i][1].toFixed(1);
+    out.push(`<path d="${d}"/>`);
+  }
+}
 
 const svg =
   `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">\n` +
-  `<g fill="none" stroke="${COLOR}" stroke-width="${STROKE}" stroke-linejoin="round">\n` +
-  paths.join("\n") +
+  `<g fill="none" stroke="${COLOR}" stroke-width="${STROKE}" stroke-linejoin="round" stroke-linecap="round">\n` +
+  out.join("") +
   `\n</g>\n</svg>\n`;
 
 writeFileSync(OUT, svg);
-console.log(`topo.svg written (${paths.length} contours, ${svg.length} bytes)`);
+console.log(`topo.svg written (${out.length} paths, ${(svg.length / 1024).toFixed(1)} KB)`);

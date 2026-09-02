@@ -92,7 +92,7 @@ body::after {
   transition: opacity 0.45s var(--ease-out);
   background-image: url("/topo.svg");
   background-repeat: repeat;
-  background-size: 420px 420px;
+  background-size: 600px 600px;
   --topo-x: -300px;
   --topo-y: -300px;
   -webkit-mask-image: radial-gradient(
