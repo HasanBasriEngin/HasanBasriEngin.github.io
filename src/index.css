@@ -92,8 +92,7 @@ body::after {
   opacity: 0.5;
   background-image: url("/topo.svg");
   background-repeat: repeat;
-  /* stretched vertically so the contour lines run ~15% flatter */
-  background-size: 640px 748px;
+  background-size: 640px 640px;
 
   --mx: -800px;
   --my: -800px;
