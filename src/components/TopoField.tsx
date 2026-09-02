@@ -55,8 +55,8 @@ export function TopoField() {
       region.x = rand(0.12, 0.88) * window.innerWidth;
       region.y = rand(0.12, 0.88) * window.innerHeight;
       region.t = 0;
-      region.dur = rand(3600, 6400);
-      region.delay = rand(700, 2400);
+      region.dur = rand(9000, 15000);
+      region.delay = rand(900, 2600);
       region.jitter = SHAPE.map(() => [rand(-55, 55), rand(-55, 55)]);
     };
     const active = !reduce;
@@ -82,7 +82,7 @@ export function TopoField() {
           region.t += dt;
           if (region.t >= region.dur) respawn();
           const p = region.t / region.dur;
-          const o = (0.5 - 0.5 * Math.cos(p * Math.PI * 2)) * 0.5; // 0 -> 1 -> 0
+          const o = (0.5 - 0.5 * Math.cos(p * Math.PI * 2)) * 0.9; // 0 -> 1 -> 0
           el.style.setProperty("--regO", o.toFixed(3));
           for (let k = 0; k < SHAPE.length; k++) {
             const rx = region.x + SHAPE[k][0] + region.jitter[k][0];
