@@ -99,7 +99,7 @@ export const projects: Project[] = [
 export const skillGroups: { title: Bilingual; items: string[] }[] = [
   {
     title: { en: "Languages", tr: "Diller" },
-    items: ["C#", "C++", "Java", "Python", "JavaScript", "TypeScript", "Kotlin", "PHP", "SQL"],
+    items: ["C#", "C++", "Java", "Python", "JavaScript", "TypeScript", "PHP", "SQL"],
   },
   {
     title: { en: "Web & App", tr: "Web & Uygulama" },
