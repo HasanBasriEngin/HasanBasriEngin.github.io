@@ -13,7 +13,6 @@ import {
   MailIcon,
   ArrowIcon,
   UniIcon,
-  BoltIcon,
 } from "./components/Icons";
 
 const STORAGE_KEY = "hbe.lang";
@@ -130,17 +129,16 @@ export default function App() {
               <Typewriter
                 text={profile.university[lang]}
                 delay={450}
-                speed={24}
+                speed={40}
                 instant={twInstant}
               />
             </span>
             <span>
-              <BoltIcon />
               <span className="tw-tag">[ROLE]</span>
               <Typewriter
                 text={profile.focus[lang]}
-                delay={1350}
-                speed={24}
+                delay={1600}
+                speed={40}
                 instant={twInstant}
               />
             </span>
@@ -149,8 +147,8 @@ export default function App() {
           <p className="bio">
             <Typewriter
               text={profile.bio[lang]}
-              delay={1350}
-              speed={5}
+              delay={1750}
+              speed={8}
               instant={twInstant}
               onDone={finishIntro}
             />
