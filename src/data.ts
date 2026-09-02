@@ -61,8 +61,8 @@ export const projects: Project[] = [
   {
     name: "PrintShop",
     desc: {
-      en: "A modern e-commerce platform for 3D-printed products, with dynamic product management, auth and an admin panel.",
-      tr: "3D baskı ürünleri satan modern bir e-ticaret platformu; dinamik ürün yönetimi, kimlik doğrulama ve yönetici paneli içeriyor.",
+      en: "A fully featured e-commerce site for 3D-printed products, including payment infrastructure, dynamic product management, authentication and an admin panel.",
+      tr: "3D baskı ürünleri satan, ödeme altyapısı dahil tam işlevli bir e-ticaret sitesi; dinamik ürün yönetimi, kimlik doğrulama ve yönetici paneli içeriyor.",
     },
     tags: ["React", "TypeScript", "Supabase", "Tailwind CSS"],
     href: "https://github.com/HasanBasriEngin/printshop-ecommerce-web-site",
@@ -70,8 +70,8 @@ export const projects: Project[] = [
   {
     name: "OmniSpeech",
     desc: {
-      en: "A hybrid DSP + deep-learning framework for multi-dimensional speech transformation: emotion conversion, voice cloning and gender/age morphing.",
-      tr: "DSP ve derin öğrenmeyi birlikte kullanan bir ses dönüştürme altyapısı: duygu aktarımı, ses klonlama, cinsiyet ve yaş değiştirme.",
+      en: "A DSP and deep-learning program for speech transformation — emotion conversion, voice cloning and gender/age morphing.",
+      tr: "DSP ve derin öğrenmeyi birlikte kullanan bir ses dönüştürme programı: duygu aktarımı, ses klonlama, cinsiyet ve yaş değiştirme.",
     },
     tags: ["Python", "PyTorch", "DSP", "Deep Learning"],
     href: "https://github.com/HasanBasriEngin/OmniSpeech-A-Hybrid-DSP-Voice-Transformation",
