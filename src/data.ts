@@ -79,10 +79,10 @@ export const projects: Project[] = [
   {
     name: "Automated Assessment Website",
     desc: {
-      en: "A web platform for creating and running automated assessments and grading.",
-      tr: "Otomatik değerlendirme ve notlandırma oluşturup çalıştırmak için bir web platformu.",
+      en: "An AI-based feedback system for English language learning that evaluates learner submissions and returns automated, targeted feedback.",
+      tr: "İngilizce öğrenimine yönelik, öğrenci çalışmalarını değerlendirip otomatik ve hedefli geri bildirim veren yapay zeka tabanlı bir sistem.",
     },
-    tags: ["TypeScript", "React", "Node.js"],
+    tags: ["TypeScript", "React", "Node.js", "Gemini 2.5 Flash", "Groq API"],
     href: "https://github.com/HasanBasriEngin/Automated-Assessment-Website",
   },
   {
