@@ -45,14 +45,19 @@ export const socials = [
     icon: "github" as const,
   },
   {
+    label: "Hack The Box",
+    href: "https://profile.hackthebox.com/profile/019fa249-02c8-70af-b61b-51e1c9e1d1a3",
+    icon: "htb" as const,
+  },
+  {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/hasan-basri-engin-732060276/",
     icon: "linkedin" as const,
   },
   {
-    label: "Hack The Box",
-    href: "https://profile.hackthebox.com/profile/019fa249-02c8-70af-b61b-51e1c9e1d1a3",
-    icon: "htb" as const,
+    label: "hasanbasriengin61@gmail.com",
+    href: "mailto:hasanbasriengin61@gmail.com",
+    icon: "mail" as const,
   },
 ];
 

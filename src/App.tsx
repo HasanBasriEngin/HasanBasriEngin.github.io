@@ -9,6 +9,7 @@ import {
   GitHubIcon,
   LinkedInIcon,
   HtbIcon,
+  MailIcon,
   ArrowIcon,
   UniIcon,
   BoltIcon,
@@ -33,6 +34,7 @@ const socialIcon = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
   htb: HtbIcon,
+  mail: MailIcon,
 } as const;
 
 export default function App() {
@@ -114,16 +116,17 @@ export default function App() {
           <nav className="socials" aria-label="Social links">
             {socials.map((s) => {
               const Icon = socialIcon[s.icon];
+              const isMail = s.href.startsWith("mailto:");
               return (
                 <a
                   key={s.label}
                   className="social-link"
                   href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={isMail ? undefined : "_blank"}
+                  rel={isMail ? undefined : "noopener noreferrer"}
                 >
                   <Icon />
-                  {s.label}
+                  <span className="social-label">{s.label}</span>
                   <ArrowIcon className="ext" />
                 </a>
               );

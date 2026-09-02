@@ -390,8 +390,16 @@ img {
   flex-shrink: 0;
 }
 
+.social-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .social-link .ext {
   margin-left: auto;
+  flex-shrink: 0;
   color: var(--text-dim);
   transition: transform 0.18s var(--ease-out), color 0.18s var(--ease-out);
 }
