@@ -55,8 +55,8 @@ export function TopoField() {
       region.x = rand(0.12, 0.88) * window.innerWidth;
       region.y = rand(0.12, 0.88) * window.innerHeight;
       region.t = 0;
-      region.dur = rand(9000, 15000);
-      region.delay = rand(900, 2600);
+      region.dur = rand(7000, 8500);
+      region.delay = rand(700, 1800);
       region.jitter = SHAPE.map(() => [rand(-55, 55), rand(-55, 55)]);
     };
     const active = !reduce;
