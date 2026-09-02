@@ -70,8 +70,8 @@ export const projects: Project[] = [
   {
     name: "OmniSpeech",
     desc: {
-      en: "A hybrid DSP + deep-learning framework for multi-dimensional speech transformation: emotion conversion, voice cloning, gender/age morphing and singing-voice synthesis.",
-      tr: "Çok boyutlu ses dönüşümü için hibrit DSP + derin öğrenme çatısı: duygu dönüşümü, ses klonlama, cinsiyet/yaş morphing ve şarkı sesi sentezi.",
+      en: "A hybrid DSP + deep-learning framework for multi-dimensional speech transformation: emotion conversion, voice cloning and gender/age morphing.",
+      tr: "Çok boyutlu ses dönüşümü için hibrit DSP + derin öğrenme çatısı: duygu dönüşümü, ses klonlama ve cinsiyet/yaş morphing.",
     },
     tags: ["Python", "PyTorch", "DSP", "Deep Learning"],
     href: "https://github.com/HasanBasriEngin/OmniSpeech-A-Hybrid-DSP-Voice-Transformation",
