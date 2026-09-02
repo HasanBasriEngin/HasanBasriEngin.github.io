@@ -8,7 +8,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import QRCode from "qrcode";
 
-const SITE_URL = "https://hasanbasriengin.github.io/";
+const SITE_URL = "https://hasanbasri.me/";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const pub = resolve(here, "../public");

@@ -1,9 +1,9 @@
-# hasanbasriengin.github.io
+# hasanbasri.me
 
 Personal profile site for **Hasan Basri Engin** — a short page that introduces
 who I am, where I study, what I'm building, and where to find me online.
 
-Live: <https://hasanbasriengin.github.io>
+Live: <https://hasanbasri.me> (also at <https://hasanbasriengin.github.io>)
 
 ## Stack
 

@@ -13,7 +13,7 @@ export interface Project {
   demo?: string;
 }
 
-export const SITE_URL = "https://hasanbasriengin.github.io/";
+export const SITE_URL = "https://hasanbasri.me/";
 
 export const profile = {
   name: "Hasan Basri Engin",
