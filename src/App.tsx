@@ -142,6 +142,7 @@ export default function App() {
           </nav>
         </motion.header>
 
+        <div className="content">
         {/* ---------- projects ---------- */}
         <section className="section" aria-labelledby="projects-label">
           <Reveal>
@@ -231,6 +232,7 @@ export default function App() {
             </a>
           </footer>
         </Reveal>
+        </div>
       </main>
     </>
   );

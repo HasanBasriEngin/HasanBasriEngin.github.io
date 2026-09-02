@@ -48,7 +48,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
-  overflow-x: hidden;
+  /* clip (not hidden) so it doesn't become a scroll container and break
+     position: sticky on the desktop intro rail */
+  overflow-x: clip;
 }
 
 /* Ambient background: subtle radial glow + fine grid, both very low contrast. */
@@ -110,6 +112,42 @@ img {
 
 .section {
   margin-top: 56px;
+}
+
+/* Desktop: split into a sticky intro rail + a scrolling content column so
+   wide screens don't leave the sides empty. Collapses back to one column
+   below 1000px. */
+@media (min-width: 1000px) {
+  .page {
+    max-width: 1180px;
+    display: grid;
+    grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+    gap: 76px;
+    align-items: start;
+    padding-top: 104px;
+    padding-bottom: 96px;
+  }
+
+  .hero {
+    position: sticky;
+    top: 104px;
+  }
+
+  .content > .section:first-child {
+    margin-top: 0;
+  }
+
+  .content .footer {
+    margin-top: 72px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page {
+    gap: 104px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 
 .section-label {
