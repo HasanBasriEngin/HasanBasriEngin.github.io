@@ -111,14 +111,14 @@ body::after {
   --r4y: -800px;
 
   -webkit-mask-image:
-    radial-gradient(circle 190px at var(--mx) var(--my), #000 0%, #000 16%, transparent 70%),
+    radial-gradient(circle 285px at var(--mx) var(--my), #000 0%, #000 16%, transparent 70%),
     radial-gradient(circle 230px at var(--r0x) var(--r0y), rgba(0, 0, 0, var(--regO)) 0%, transparent 78%),
     radial-gradient(circle 180px at var(--r1x) var(--r1y), rgba(0, 0, 0, var(--regO)) 0%, transparent 78%),
     radial-gradient(circle 200px at var(--r2x) var(--r2y), rgba(0, 0, 0, var(--regO)) 0%, transparent 78%),
     radial-gradient(circle 160px at var(--r3x) var(--r3y), rgba(0, 0, 0, var(--regO)) 0%, transparent 78%),
     radial-gradient(circle 185px at var(--r4x) var(--r4y), rgba(0, 0, 0, var(--regO)) 0%, transparent 78%);
   mask-image:
-    radial-gradient(circle 190px at var(--mx) var(--my), #000 0%, #000 16%, transparent 70%),
+    radial-gradient(circle 285px at var(--mx) var(--my), #000 0%, #000 16%, transparent 70%),
     radial-gradient(circle 230px at var(--r0x) var(--r0y), rgba(0, 0, 0, var(--regO)) 0%, transparent 78%),
     radial-gradient(circle 180px at var(--r1x) var(--r1y), rgba(0, 0, 0, var(--regO)) 0%, transparent 78%),
     radial-gradient(circle 200px at var(--r2x) var(--r2y), rgba(0, 0, 0, var(--regO)) 0%, transparent 78%),
