@@ -126,7 +126,9 @@ export default function App() {
                   rel="noopener noreferrer"
                 >
                   <Icon className={isMail ? "social-mail-icon" : undefined} />
-                  <span className="social-label">{s.label}</span>
+                  <span className="social-label">
+                    {isMail ? t.sendEmail : s.label}
+                  </span>
                   <ArrowIcon className="ext" />
                 </a>
               );

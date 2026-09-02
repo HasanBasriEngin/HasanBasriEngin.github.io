@@ -10,6 +10,7 @@ export const ui = {
     viewRepo: "View repository",
     footerNote: "Built with React, Vite & Motion.",
     scanToShare: "Scan to open this page",
+    sendEmail: "Send email",
     langName: "English",
   },
   tr: {
@@ -21,6 +22,7 @@ export const ui = {
     viewRepo: "Repoyu aç",
     footerNote: "React, Vite ve Motion ile geliştirildi.",
     scanToShare: "Bu sayfayı açmak için tarat",
+    sendEmail: "Mail gönder",
     langName: "Türkçe",
   },
 } satisfies Record<Lang, Record<string, string>>;

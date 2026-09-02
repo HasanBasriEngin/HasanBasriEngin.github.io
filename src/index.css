@@ -391,9 +391,9 @@ img {
 }
 
 .social-link > svg.social-mail-icon {
-  width: 23px;
-  height: 23px;
-  margin: -3px -3px -3px -4px; /* keep text baseline aligned despite the larger glyph */
+  width: 19px;
+  height: 19px;
+  margin: -1px -1px -1px -1px;
 }
 
 .social-label {
