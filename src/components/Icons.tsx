@@ -45,6 +45,31 @@ export function MailIcon({ className }: IconProps) {
   );
 }
 
+// Instagram — gradient rounded square with the white camera outline + dot.
+export function InstagramIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <defs>
+        <linearGradient
+          id="ig-grad"
+          x1="2"
+          y1="22"
+          x2="22"
+          y2="2"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stopColor="#F9CE34" />
+          <stop offset="0.45" stopColor="#EE2A7B" />
+          <stop offset="1" stopColor="#6228D7" />
+        </linearGradient>
+      </defs>
+      <rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="url(#ig-grad)" />
+      <circle cx="12" cy="12" r="4.6" fill="none" stroke="#ffffff" strokeWidth="2" />
+      <circle cx="17.3" cy="6.7" r="1.35" fill="#ffffff" />
+    </svg>
+  );
+}
+
 // Credly — orange roundel with a white "C".
 export function CredlyIcon({ className }: IconProps) {
   return (

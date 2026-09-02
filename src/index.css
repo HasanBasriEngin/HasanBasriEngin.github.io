@@ -417,10 +417,6 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-
-  .socials > :last-child {
-    grid-column: 1 / -1;
-  }
 }
 
 .social-link {

@@ -55,6 +55,11 @@ export const socials = [
     icon: "linkedin" as const,
   },
   {
+    label: "Instagram",
+    href: "https://www.instagram.com/hsn_bsri_engn/",
+    icon: "instagram" as const,
+  },
+  {
     label: "Credly",
     href: "https://www.credly.com/users/hasan-basri-engin",
     icon: "credly" as const,

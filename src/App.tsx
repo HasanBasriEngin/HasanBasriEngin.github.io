@@ -10,6 +10,7 @@ import {
   GitHubIcon,
   LinkedInIcon,
   HtbIcon,
+  InstagramIcon,
   CredlyIcon,
   MailIcon,
   ArrowIcon,
@@ -35,6 +36,7 @@ const socialIcon = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
   htb: HtbIcon,
+  instagram: InstagramIcon,
   credly: CredlyIcon,
   mail: MailIcon,
 } as const;
