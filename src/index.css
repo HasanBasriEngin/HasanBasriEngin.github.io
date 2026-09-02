@@ -92,7 +92,8 @@ body::after {
   opacity: 0.5;
   background-image: url("/topo.svg");
   background-repeat: repeat;
-  background-size: 640px 640px;
+  /* stretched vertically so the contour lines run ~15% flatter */
+  background-size: 640px 748px;
 
   --mx: -800px;
   --my: -800px;
@@ -388,6 +389,12 @@ img {
   width: 17px;
   height: 17px;
   flex-shrink: 0;
+}
+
+.social-link > svg.social-mail-icon {
+  width: 23px;
+  height: 23px;
+  margin: -3px -3px -3px -4px; /* keep text baseline aligned despite the larger glyph */
 }
 
 .social-label {

@@ -38,9 +38,10 @@ const waves = [];
 for (let n = 0; n < 3; n++)
   waves.push({ kx: ri(1, 2), ky: ri(1, 2), ph: rr(0, 6.283), amp: rr(0.9, 1.3) });
 for (let n = 0; n < 3; n++)
-  waves.push({ kx: ri(2, 4), ky: ri(2, 4), ph: rr(0, 6.283), amp: rr(0.18, 0.34) });
-for (let n = 0; n < 3; n++)
-  waves.push({ kx: ri(3, 7), ky: ri(3, 7), ph: rr(0, 6.283), amp: rr(0.04, 0.09) });
+  waves.push({ kx: ri(2, 4), ky: ri(2, 4), ph: rr(0, 6.283), amp: rr(0.14, 0.24) });
+// keep detail low so contours stay smooth (no "caterpillar" toothed loops)
+for (let n = 0; n < 2; n++)
+  waves.push({ kx: ri(3, 5), ky: ri(3, 5), ph: rr(0, 6.283), amp: rr(0.02, 0.045) });
 
 const field = (fx, fy) => {
   let h = 0;
@@ -190,6 +191,19 @@ function chain(segs) {
 const out = [];
 for (const lvl of levels) {
   for (const p of chain(segmentsFor(lvl))) {
+    // drop tiny fragments / little blobs — those are what read as "caterpillars"
+    let minX = Infinity;
+    let minY = Infinity;
+    let maxX = -Infinity;
+    let maxY = -Infinity;
+    for (const [x, y] of p) {
+      if (x < minX) minX = x;
+      if (x > maxX) maxX = x;
+      if (y < minY) minY = y;
+      if (y > maxY) maxY = y;
+    }
+    if (p.length < 10 || Math.max(maxX - minX, maxY - minY) < 60) continue;
+
     let d = "M" + p[0][0].toFixed(1) + " " + p[0][1].toFixed(1);
     for (let i = 1; i < p.length; i++)
       d += "L" + p[i][0].toFixed(1) + " " + p[i][1].toFixed(1);
