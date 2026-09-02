@@ -17,9 +17,9 @@ export const SITE_URL = "https://hasanbasriengin.github.io/";
 
 export const profile = {
   name: "Hasan Basri Engin",
-  // Pulled live from the GitHub profile. To pin a local copy instead, drop a
-  // file at public/avatar.jpg and set this back to "/avatar.jpg".
-  avatar: "https://github.com/HasanBasriEngin.png?size=240",
+  // Local file in public/. Swap it there (keep the name) to change the photo,
+  // or point this at a URL. Falls back to initials if it fails to load.
+  avatar: "/avatar.png",
   role: {
     en: "Software Engineering student — Cybersecurity & Software Development",
     tr: "Yazılım Mühendisliği öğrencisi — Siber Güvenlik ve Yazılım Geliştirme",
