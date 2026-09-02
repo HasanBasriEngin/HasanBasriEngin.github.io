@@ -173,30 +173,21 @@ img {
 @media (min-width: 1000px) {
   .page {
     max-width: 1180px;
-    padding: 60px 24px;
+    padding: 48px 24px;
   }
 
   /* the intro rail is fixed to the viewport — it never moves, however fast
      the page is scrolled. It's aligned with the page's left edge; the
-     content column is offset to clear it. max-height only matters on
-     unusually short windows, where the rail then scrolls internally. */
+     content column is offset to clear it. */
   .hero {
     position: fixed;
-    top: 60px;
-    width: 340px;
+    top: 48px;
+    width: 360px;
     left: max(24px, calc(50% - 566px));
-    max-height: calc(100vh - 84px);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: none;
-  }
-
-  .hero::-webkit-scrollbar {
-    display: none;
   }
 
   .content {
-    margin-left: 416px;
+    margin-left: 432px;
   }
 
   .content > .section:first-child {
@@ -219,7 +210,7 @@ img {
   }
 
   .content {
-    margin-left: 444px;
+    margin-left: 456px;
   }
 }
 
@@ -417,6 +408,19 @@ img {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+/* desktop: two columns so the fixed intro rail fits without scrolling
+   (this block sits after the base rule so it actually wins) */
+@media (min-width: 1000px) {
+  .socials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .socials > :last-child {
+    grid-column: 1 / -1;
+  }
 }
 
 .social-link {
