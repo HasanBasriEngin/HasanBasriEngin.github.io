@@ -116,14 +116,14 @@ export default function App() {
           <nav className="socials" aria-label="Social links">
             {socials.map((s) => {
               const Icon = socialIcon[s.icon];
-              const isMail = s.href.startsWith("mailto:");
+              const isMail = s.icon === "mail";
               return (
                 <a
                   key={s.label}
                   className="social-link"
                   href={s.href}
-                  target={isMail ? undefined : "_blank"}
-                  rel={isMail ? undefined : "noopener noreferrer"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Icon className={isMail ? "social-mail-icon" : undefined} />
                   <span className="social-label">{s.label}</span>

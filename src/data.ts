@@ -56,7 +56,9 @@ export const socials = [
   },
   {
     label: "hasanbasriengin61@gmail.com",
-    href: "mailto:hasanbasriengin61@gmail.com",
+    // Gmail web compose — opens a "new message" window with the address
+    // pre-filled, no OS mail handler required.
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hasanbasriengin61@gmail.com",
     icon: "mail" as const,
   },
 ];

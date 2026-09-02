@@ -29,7 +29,7 @@ export function LinkedInIcon({ className }: IconProps) {
   );
 }
 
-// Gmail-style envelope: faint body, blue/green legs, red centre "M".
+// Gmail-style envelope: pale body, blue/green legs, bold red centre "M".
 export function MailIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
@@ -40,14 +40,11 @@ export function MailIcon({ className }: IconProps) {
         height="17"
         rx="3"
         fill="#ffffff"
-        fillOpacity="0.13"
+        fillOpacity="0.32"
       />
-      <path
-        d="M3 6v12h3.4V10.2L12 14.9l5.6-4.7V18H21V6l-9 7.4z"
-        fill="#EA4335"
-      />
-      <path d="M3 6v12h3.4V10.2z" fill="#4285F4" />
-      <path d="M21 6v12h-3.4V10.2z" fill="#34A853" />
+      <path d="M3 6v12h4V9.5L12 16.5l5-7V18h4V6L12 12.5z" fill="#EA4335" />
+      <path d="M3 6v12h4V9.5z" fill="#4285F4" />
+      <path d="M21 6v12h-4V9.5z" fill="#34A853" />
     </svg>
   );
 }
