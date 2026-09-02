@@ -1,13 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import {
-  profile,
-  socials,
-  projects,
-  skillGroups,
-  SITE_URL,
-  type Lang,
-} from "./data";
+import { profile, socials, projects, skillGroups, type Lang } from "./data";
 import { ui } from "./i18n";
 import { Reveal } from "./components/Reveal";
 import { LangSwitch } from "./components/LangSwitch";
@@ -16,7 +9,7 @@ import {
   LinkedInIcon,
   HtbIcon,
   ArrowIcon,
-  CapIcon,
+  UniIcon,
   BoltIcon,
 } from "./components/Icons";
 
@@ -106,7 +99,7 @@ export default function App() {
 
           <div className="meta">
             <span>
-              <CapIcon />
+              <UniIcon />
               {profile.university[lang]}
             </span>
             <span>
@@ -221,15 +214,6 @@ export default function App() {
               </p>
               <p>{t.footerNote}</p>
             </div>
-            <a
-              className="qr"
-              href={SITE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={t.scanToShare}
-            >
-              <img src="/qr.svg" alt={t.scanToShare} width={62} height={62} />
-            </a>
           </footer>
         </Reveal>
         </div>

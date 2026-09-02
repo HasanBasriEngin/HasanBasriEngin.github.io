@@ -29,8 +29,8 @@ export const profile = {
     tr: "Ankara Bilim Üniversitesi · 4. sınıf",
   } satisfies Bilingual,
   focus: {
-    en: "Blue Team · Security Automation",
-    tr: "Blue Team · Güvenlik Otomasyonu",
+    en: "Blue Team",
+    tr: "Blue Team",
   } satisfies Bilingual,
   bio: {
     en: "I focus on network security, blue team operations, secure systems and security automation — digging into how protocols actually work and building tooling around them. Alongside that I ship full-stack web apps with React, TypeScript and modern backends.",
