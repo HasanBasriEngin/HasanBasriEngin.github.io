@@ -42,6 +42,10 @@ export function TopoField() {
 
     const rand = (a: number, b: number) => a + Math.random() * (b - a);
 
+    // On phones the avatar / hero sit at the very top, so bias the region
+    // upward there — otherwise a uniform spread rarely reaches that band.
+    const narrow = window.matchMedia("(max-width: 700px)").matches;
+
     // one breathing region
     const region = {
       x: 0,
@@ -53,10 +57,12 @@ export function TopoField() {
     };
     const respawn = () => {
       region.x = rand(0.12, 0.88) * window.innerWidth;
-      region.y = rand(0.12, 0.88) * window.innerHeight;
+      region.y = narrow
+        ? (0.02 + 0.4 * Math.pow(Math.random(), 2)) * window.innerHeight
+        : rand(0.12, 0.88) * window.innerHeight;
       region.t = 0;
-      region.dur = rand(7000, 8500);
-      region.delay = rand(700, 1800);
+      region.dur = narrow ? rand(5500, 7000) : rand(7000, 8500);
+      region.delay = narrow ? rand(200, 800) : rand(700, 1800);
       region.jitter = SHAPE.map(() => [rand(-55, 55), rand(-55, 55)]);
     };
     const active = !reduce;
