@@ -33,8 +33,8 @@ export const profile = {
     tr: "SOC · Blue Team",
   } satisfies Bilingual,
   bio: {
-    en: "A software engineering student specializing in cybersecurity, with an emphasis on Security Operations Center (SOC) practice: log monitoring, alert analysis, threat detection and incident response. My work centers on identifying malicious activity within operational telemetry and strengthening early detection. Alongside this, I design and develop full-stack applications end to end, from backend services and APIs to the frontend layer.",
-    tr: "Siber güvenlik alanında uzmanlaşan bir yazılım mühendisliği öğrencisiyim; çalışmalarım ağırlıklı olarak Güvenlik Operasyon Merkezi (SOC) pratiği üzerinedir: log izleme, alarm analizi, tehdit tespiti ve olay müdahalesi. Operasyonel telemetride kötü niyetli aktivitenin tespiti ve erken uyarı süreçlerinin güçlendirilmesi üzerine yoğunlaşıyorum. Bunun yanında, backend servisleri ve API'lerden frontend katmanına kadar uçtan uca full-stack uygulamalar tasarlayıp geliştiriyorum.",
+    en: "A software engineering student working in cybersecurity, mainly on the SOC side. I also build full-stack applications end to end, from backend services and APIs to the frontend layer.",
+    tr: "Siber güvenlik alanında çalışan bir yazılım mühendisliği öğrencisiyim; ağırlıklı olarak SOC tarafında yer alıyorum. Ayrıca backend servisleri ve API'lerden frontend katmanına kadar uçtan uca full-stack uygulamalar geliştiriyorum.",
   } satisfies Bilingual,
 };
 
