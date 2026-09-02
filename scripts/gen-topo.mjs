@@ -29,7 +29,7 @@ const H = 640;
 const GRID = 128; // field sampling resolution
 const LEVELS = 7;
 const COLOR = "#6CFF00";
-const STROKE = 2.5;
+const STROKE = 2.1;
 
 // ---- tileable height field: sum of sines, integer wavenumbers ----
 // Kept smooth (few, low-frequency components) so contours are sparse and
