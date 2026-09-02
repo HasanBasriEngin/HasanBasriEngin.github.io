@@ -45,22 +45,18 @@ export function MailIcon({ className }: IconProps) {
   );
 }
 
-// Credly — an award rosette (medal + ribbon), in badge gold.
+// Credly — orange roundel with a white "C".
 export function CredlyIcon({ className }: IconProps) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#f2b134"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="8.5" r="5.5" />
-      <path d="M8.4 13.3 6.6 21.5 12 18.4l5.4 3.1-1.8-8.2" />
-      <path d="M9.6 8.6 11.3 10.3 14.7 6.7" />
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="11" fill="#FF7900" />
+      <path
+        d="M15.6 9.3a4.7 4.7 0 1 0 0 5.4"
+        fill="none"
+        stroke="#ffffff"
+        strokeWidth="2.9"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
