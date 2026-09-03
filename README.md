@@ -51,4 +51,4 @@ Source: GitHub Actions**.
 All rights reserved — see [`LICENSE`](LICENSE). The source is public so it
 can be read and reviewed, but it is **not open source**: it may not be
 reused, modified, redistributed or deployed without written permission.
-Contact: hasanbasriengin61@gmail.com
+
